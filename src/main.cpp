@@ -26,6 +26,12 @@ void loop() {
   long duration = pulseIn(echoPin, HIGH);
   long distance = (duration * 0.0343) / 2;
 
+  if (distance <= 5) {
+    MYSERVO.write(180);
+  } else {
+    MYSERVO.write(0);
+  }
+
   Serial.print("Distance: ");
   Serial.print(distance);
   Serial.println(" cm");
